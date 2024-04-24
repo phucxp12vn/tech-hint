@@ -1,13 +1,4 @@
-"use client";
-
-import {
-  Box,
-  Card,
-  CardBody,
-  Stack,
-  StackDivider,
-  Text,
-} from "@chakra-ui/react";
+import { Card, CardBody, Stack, StackDivider } from "@chakra-ui/react";
 
 import CodeHightLight from "./CodeHightLight";
 

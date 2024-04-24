@@ -1,25 +1,16 @@
-import { Highlight, themes } from "prism-react-renderer";
+import { codeToHtml } from "shiki";
 
 interface CodeHightLightProps {
   code: string;
 }
 
-const CodeHightLight = ({ code }: CodeHightLightProps) => {
-  return (
-    <Highlight theme={themes.vsLight} code={code} language="tsx">
-      {({ style, tokens, getLineProps, getTokenProps }) => (
-        <pre style={style}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token })} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
-  );
+const CodeHightLight = async ({ code }: CodeHightLightProps) => {
+  const html = await codeToHtml(code, {
+    lang: "jsx",
+    theme: "github-light",
+  });
+
+  return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 export default CodeHightLight;
