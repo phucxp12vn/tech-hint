@@ -1,23 +1,11 @@
-"use client";
-
-import {
-  Box,
-  Flex,
-  Avatar,
-  Menu,
-  useColorModeValue,
-  Stack,
-} from "@chakra-ui/react";
-
-interface Props {
-  children: React.ReactNode;
-}
+import { Box, Flex, Avatar, Stack } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Nav = () => {
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+    <Box bg="gray.100" px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Box>TECHHINT.IO</Box>
+        <Link href="/">TECHHINT.IO</Link>
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>
             <Avatar size={"sm"} />
