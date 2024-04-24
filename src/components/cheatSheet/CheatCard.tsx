@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Card,
@@ -6,6 +8,21 @@ import {
   StackDivider,
   Text,
 } from "@chakra-ui/react";
+
+import CodeHightLight from "./CodeHightLight";
+
+const dummyContent = [
+  `import React from 'react';
+import ReactDOM from 'react-dom';`,
+  `class Hello extends React.Component {
+    render () {
+      return <div className='message-box'>
+        Hello {this.props.name}
+      </div>
+    }
+  }`,
+  `const el = document.body;\nReactDOM.render(<Hello name='John' />, el);`,
+];
 
 const CheatCard = () => {
   return (
@@ -16,27 +33,9 @@ const CheatCard = () => {
     >
       <CardBody>
         <Stack divider={<StackDivider />} spacing="4">
-          <Box>
-            <Text pt="2" fontSize="sm">
-              import React from &apos;react&apos;
-              <br />
-              import ReactDOM from &apos;react-dom&apos;
-            </Text>
-          </Box>
-          <Box>
-            <Text pt="2" fontSize="sm">
-              import React from &apos;react&apos;
-              <br />
-              import ReactDOM from &apos;react-dom&apos;
-            </Text>
-          </Box>
-          <Box>
-            <Text pt="2" fontSize="sm">
-              import React from &apos;react&apos;
-              <br />
-              import ReactDOM from &apos;react-dom&apos;
-            </Text>
-          </Box>
+          {dummyContent.map((code, index) => (
+            <CodeHightLight key={index} code={code} />
+          ))}
         </Stack>
       </CardBody>
     </Card>
