@@ -1,4 +1,4 @@
-// app/layout.tsx
+import Nav from "@/components/Nav";
 import { Providers } from "./providers";
 
 export default function RootLayout({
@@ -9,7 +9,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <main>
+            <Nav />
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );
