@@ -1,4 +1,4 @@
-import { codeToHtml } from "shiki";
+import { codeToHtml } from "shiki/bundle/web";
 
 interface CodeHightLightProps {
   code: string;
